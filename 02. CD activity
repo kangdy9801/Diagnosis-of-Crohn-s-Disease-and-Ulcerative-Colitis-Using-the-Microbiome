@@ -191,21 +191,21 @@ sample_data(patient)$Class <- factor(sample_data(patient)$Class, levels=c("Mild"
 
 
 #05. linda
-linda.obj <- linda(phyloseq.obj = patient,
+linda.obj_CD <- linda(phyloseq.obj = patient,
                    feature.dat.type = "count", 
-                   p.adj.method = "fdr",#P 보정
-                   alpha = 0.05,
-                   is.winsor = TRUE, # 
-                   formula = '~Class', #
+                   p.adj.method = "fdr",
+                   alpha = 0.01,
+                   is.winsor = TRUE, 
+                   formula = '~Class', 
                    zero.handling = "pseudo-count", 
                    pseudo.cnt = 1) # pseudo coun 
-res <- linda.obj$output
+res <- linda.obj_CD$output
 res$ClassModerate
 
 #06.data.frame
 linda_res_df <- data.frame(
   Species = row.names(res$ClassModerate),
-  baseMean = unlist(res$ClassModerate$baseMean),#2의 절편 계수의 거듭제곱(100만 단위로 정규화됨)
+  baseMean = unlist(res$ClassModerate$baseMean),
   logFC = unlist(res$ClassModerate$log2FoldChange),
   lfcSE = unlist(res$ClassModerate$lfcSE), # standard errors
   stat = unlist(res$ClassModerate$stat),#log2FoldChange / lfcSE
