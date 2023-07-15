@@ -8,19 +8,20 @@ library('ggpubr')
 
 ##01.update data
 # open sample infromation
-sampledata <- read.table(file = "C:/Users/CEO/Desktop/META3/01.input/00.SAM.txt",
+sampledata <- read.table(file = "00.SAM.txt",
                          header = T,
                          sep = '\t',
                          quote = "",
                          check.names = F,
                          stringsAsFactors = F,
                          row.names = 1)
+## https://github.com/kangdy9801/Diagnosis-of-Crohn-s-Disease-and-Ulcerative-Colitis-Using-the-Microbiome/blob/main/input%20file/00.SAM.txt
 
 sampledata$Group <- factor(sampledata$Group, levels=c("HC","CD","UC"))
 SAM = sample_data(sampledata, errorIfNULL = TRUE)
 
 # oepn Tax file
-setwd("C:/Users/CEO/Desktop/META3/01.input/")
+## https://github.com/kangdy9801/Diagnosis-of-Crohn-s-Disease-and-Ulcerative-Colitis-Using-the-Microbiome/blob/main/input%20file/bracken.biom
 biomfilename = "bracken.biom"
 data <- import_biom(biomfilename, parseFunction=parse_taxonomy_default)
 
@@ -86,7 +87,7 @@ p <- chao1_alpha_plot + stat_compare_means(
   method = "wilcox.test")
 p
 
-##03. beta diveristy
+##03. beta diversity
 pseq.rda <- ordinate(physeq = data_phylo_filt_rarefy, method = "PCoA",distance ="bray", cca = "Group")
 
 scores <- pseq.rda$vectors
@@ -228,6 +229,7 @@ EnhancedVolcano(linda_res_df,
 library(RColorBrewer)
 
 #01.TSEA_list 
+## https://github.com/kangdy9801/Diagnosis-of-Crohn-s-Disease-and-Ulcerative-Colitis-Using-the-Microbiome/blob/main/input%20file/disease.txt
 TSEA_list <- read.table(file = "disease.txt",
                         header = T,
                         sep = '\t',
