@@ -53,7 +53,6 @@ data_phylo_filt_rarefy <- rarefy_even_depth(physeq = data_phylo_filt,
                                             replace = F, 
                                             trimOTUs = T)
 
-
 ##02. alpha diversity
 library(microbiomeutilities)
 library(ggpubr)
@@ -89,16 +88,22 @@ p
 
 ##03. beta diveristy
 pseq.rda <- ordinate(physeq = data_phylo_filt_rarefy, method = "PCoA",distance ="bray", cca = "Group")
+
+scores <- pseq.rda$vectors
+pcoa_df <- data.frame(sample_id = rownames(scores), PCoA1 = scores[, 1], PCoA2 = scores[, 2])
+
 ord_RDA <- plot_ordination(physeq = data_phylo_filt_rarefy, ordination = pseq.rda, color = "Group")
-ord_RDA <- ord_RDA + geom_point(size = 5) + 
+ord_RDA <- ord_RDA + geom_point(size = 7) + 
   scale_color_manual(values=mycols) + stat_ellipse() + theme_classic2() +
-  theme(axis.text.y = element_text(size=20),
-        axis.text.x = element_text(size = 20),
-        legend.title = element_text(size = 15),
-        legend.text = element_text(size = 15),
-        axis.title.y = element_text(size=18), 
-        axis.title.x = element_text(size = 18))
+  theme(axis.text.y = element_text(size=30),
+        axis.text.x = element_text(size = 30),
+        legend.title = element_text(size = 25),
+        legend.text = element_text(size = 25),
+        axis.title.y = element_text(size=30),
+        axis.title.x = element_text(size = 30))+
+  labs(x = "PCo1 [18.1%]", y = "PCo2 [14.3%]")
 ord_RDA
+
 
 #03. permanova
 library("vegan")
