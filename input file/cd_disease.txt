@@ -1,0 +1,18 @@
+From_Curated_Host_intrinsic_Taxon_Sets	total	Ratio	hits	p.value	Tendency
+Calprotectin 	15	1.2	9	3.45E-07	Increase
+Dysbiosis Of Bile Acid Homeostasis 	27	2.15	9	0.000139	Increase
+Colorectal carcinogenesis 	7	0.558	4	0.00112	Increase
+Fibromyalgia 	4	0.319	3	0.00187	Increase
+Colorectal carcinogenesis 	21	1.67	6	0.00461	Decrease
+ChromograninA 	76	6.05	13	0.00579	Increase
+Parkinsons 	2	0.159	2	0.00631	Increase
+Rheumatoid arthritis 	2	0.159	2	0.00631	Increase
+Hiprculation 	6	0.478	3	0.0083	Increase
+Colorectal cancer 	25	1.99	6	0.0115	Increase
+Age 	49	3.9	9	0.0132	Increase
+BMI 	7	0.558	3	0.0137	Increase
+Colorectal cancer 	7	0.558	3	0.0137	Increase
+Spontaneous bacterial peritonitis 	3	0.239	2	0.0179	Increase
+Schizophrenia 	8	0.637	3	0.0206	Increase
+Insulin Resistance and  Fatty Liver 	46	3.66	8	0.0261	Decrease
+Core Subgingival 	92	7.33	13	0.0275	Unknow

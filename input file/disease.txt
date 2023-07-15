@@ -1,0 +1,24 @@
+From_Curated_Host_intrinsic_Taxon_Sets	total	Ratio	hits	p.value	Tendency
+Bristol av. stool type adjusted 	6	0.0997	2	0.00386	Increase
+Bristol av.stool.freq 	25	0.415	3	0.00751	Increase
+Familial Mediterranean Fever 	1	0.0166	1	0.0166	Increase
+Feeding And Eating Disorders 	1	0.0166	1	0.0166	Increase
+prostatitis 	1	0.0166	1	0.0166	Increase
+pyelonephritis 	1	0.0166	1	0.0166	Increase
+Uremia 	1	0.0166	1	0.0166	Increase
+urethral bacteremia 	1	0.0166	1	0.0166	Increase
+Urinary Tract Infections 	1	0.0166	1	0.0166	Increase
+Diabetes Mellitus 	102	1.7	5	0.0245	Increase
+Crohn's Disease 	15	0.249	2	0.0246	Increase
+Crohn Disease 	40	0.665	3	0.0272	Increase
+Migraine 	2	0.0332	1	0.033	Increase
+Crohn's Disease 	21	0.349	2	0.0462	Increase
+Proctitis 	3	0.0499	1	0.0491	Increase
+Decompensated hepatitis B virus cirrhosis 	14	0.233	3	0.00135	Decrease
+Inflammatory Bowel Diseases 	176	2.92	9	0.00166	Decrease
+Type 2 Diabetes 	9	0.15	2	0.00897	Decrease
+Chronic heart failure 	1	0.0166	1	0.0166	Decrease
+Excessive silver ion intake 	1	0.0166	1	0.0166	Decrease
+Asymptomatic Infections; Hepatitis B virus 	1	0.0166	1	0.0166	Decrease
+"Colitis, Ulcerative; Proctocolectomy, Restorative "	2	0.0332	1	0.033	Decrease
+Enterocolitis remission; Hirschsprung Disease 	3	0.0499	1	0.0491	Decrease

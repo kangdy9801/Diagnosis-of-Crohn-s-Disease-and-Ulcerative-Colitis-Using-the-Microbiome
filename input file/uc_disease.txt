@@ -1,0 +1,30 @@
+From_Curated_Host_intrinsic_Taxon_Sets	total	Ratio	hits	p.value	Tendency
+Core Subgingival 	92	4.72	11	0.00621	Unknow
+Calprotectin 	15	0.77	9	6.82E-09	Increase
+Dysbiosis Of Bile Acid Homeostasis 	27	1.39	9	3.80E-06	Increase
+Age 	49	2.51	10	0.000126	Increase
+ChromograninA 	76	3.9	12	0.000348	Increase
+Fibromyalgia 	4	0.205	3	0.000506	Increase
+Hiprculation 	6	0.308	3	0.00235	Increase
+Migraine 	2	0.103	2	0.00261	Increase
+Parkinsons 	2	0.103	2	0.00261	Increase
+Rheumatoid arthritis 	2	0.103	2	0.00261	Increase
+Cirrhosis 	21	1.08	5	0.00341	Increase
+BMI 	7	0.359	3	0.00395	Increase
+Schizophrenia 	8	0.411	3	0.00609	Increase
+Spontaneous bacterial peritonitis 	3	0.154	2	0.00757	Increase
+Crohn's Disease 	21	1.08	4	0.0199	Increase
+Beta Defensin 2 	12	0.616	3	0.0206	Increase
+Cystic Fibrosis 	12	0.616	3	0.0206	Increase
+Colorectal cancer 	22	1.13	4	0.0234	Increase
+Rheumatoid arthritis 	22	1.13	4	0.0234	Increase
+Bristol av. stool type adjusted 	6	0.308	2	0.0342	Increase
+IBS 	6	0.308	2	0.0342	Increase
+Enterocolitis; Hirschsprung Disease 	6	0.308	2	0.0342	Increase
+Bristol av.stool.freq 	25	1.28	4	0.036	Increase
+Triglyceride 	16	0.821	3	0.0452	Increase
+Colorectal carcinogenesis 	7	0.359	2	0.0463	Increase
+Liver Cirrhosis 	52	2.67	9	0.00101	Decrease
+Insulin Resistance and  Fatty Liver 	46	2.36	8	0.00188	Decrease
+Autism 	5	0.257	2	0.0236	Decrease
+Irritable Bowel Syndrome 	6	0.308	2	0.0342	Decrease
