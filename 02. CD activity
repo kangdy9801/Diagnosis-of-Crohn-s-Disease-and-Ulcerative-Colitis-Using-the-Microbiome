@@ -6,7 +6,8 @@ library("ggtree")
 library('tidytree')
 library('ggpubr')
 
-# open sample infromation
+# open sample information
+## https://github.com/kangdy9801/Diagnosis-of-Crohn-s-Disease-and-Ulcerative-Colitis-Using-the-Microbiome/blob/main/input%20file/01.SAM_CD.txt
 sampledata <- read.table(file = "01.SAM_CD.txt",
                          header = T,
                          sep = '\t',
@@ -19,7 +20,7 @@ sampledata$Group <- factor(sampledata$Group, levels=c("HC","CD"))
 SAM = sample_data(sampledata, errorIfNULL = TRUE)
 
 # oepn Tax file
-setwd("C:/Users/CEO/Desktop/META3/01.input/")
+## https://github.com/kangdy9801/Diagnosis-of-Crohn-s-Disease-and-Ulcerative-Colitis-Using-the-Microbiome/blob/main/input%20file/bracken.biom
 biomfilename = "bracken.biom"
 data <- import_biom(biomfilename, parseFunction=parse_taxonomy_default)
 
@@ -31,6 +32,7 @@ TAX = tax_table(taxmat)
 bacteria_filiter = subset_taxa(TAX, Kingdom =="k__Bacteria")
 
 #otu
+## https://github.com/kangdy9801/Diagnosis-of-Crohn-s-Disease-and-Ulcerative-Colitis-Using-the-Microbiome/blob/main/input%20file/03.rarefy_CD.txt
 otumat <- read.table(file = "03.rarefy_CD.txt",
                      header = T,
                      sep = '\t',
@@ -102,6 +104,7 @@ sample_meta <- data.frame(sample_meta)
 adonis2(totumat~Class, data= sample_meta, permutations=9999, method="bray")
 
 ##04. relative abundance
+## https://github.com/kangdy9801/Diagnosis-of-Crohn-s-Disease-and-Ulcerative-Colitis-Using-the-Microbiome/blob/main/input%20file/02.filter.txt
 otumat <- read.table(file = "02.filter.txt",
                      header = T,
                      sep = '\t',
@@ -236,6 +239,7 @@ EnhancedVolcano(linda_res_df,
 library(RColorBrewer)
 
 #01.TSEA_list 
+## https://github.com/kangdy9801/Diagnosis-of-Crohn-s-Disease-and-Ulcerative-Colitis-Using-the-Microbiome/blob/main/input%20file/cd_disease.txt
 TSEA_list <- read.table(file = "cd_disease.txt",
                         header = T,
                         sep = '\t',
@@ -267,7 +271,7 @@ tsea_plot <- ggplot(data = TSEA_list)+
         legend.text = element_text(size = 13), legend.title = element_text(size = 13))
 tsea_plot
 
-##07. CD activity differential abudnacne
+##07. CD activity differential abundance
 #Class
 patient <- phyloseq::subset_samples(
   physeq = physeq_CD,
