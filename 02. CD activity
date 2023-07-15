@@ -138,7 +138,7 @@ sample_meta <- data.frame(sample_meta)
 dataset <- microtable$new(sample_table = sample_meta, otu_table = otu, tax_table = tax)
 dataset
 
-#02.phylum, genus, species level만 가져오기.
+#02.phylum, genus, species level
 # The groupmean parameter can be used to obtain the group-mean barplot.
 t1 <- trans_abund$new(dataset = dataset, taxrank = "Phylum", ntaxa = 10, groupmean = "Class")
 t2 <- trans_abund$new(dataset = dataset, taxrank = "Genus", ntaxa = 10, groupmean = "Class")
@@ -175,7 +175,7 @@ s2 <- s1 + theme_classic() +
         axis.title.y = element_text(size=30), 
         axis.title.x = element_text(size = 20))
 
-##05. CD differential abudnacne
+##05. CD differential abundance
 #  Linear (Lin) Model for Differential Abundance (DA) Analysis
 library("MicrobiomeStat")
 
@@ -184,10 +184,10 @@ physeq_CD
 #02. linda
 linda.obj <- linda(phyloseq.obj = physeq_CD,
                    feature.dat.type = "count", 
-                   p.adj.method = "fdr",#P 보정
+                   p.adj.method = "fdr",
                    alpha = 0.05,
-                   is.winsor = TRUE, # 
-                   formula = '~Group', #
+                   is.winsor = TRUE, 
+                   formula = '~Group',
                    zero.handling = "pseudo-count", 
                    pseudo.cnt = 1) # pseudo coun 
 res <- linda.obj$output
@@ -196,7 +196,7 @@ res$GroupCD
 #03.data.frame
 linda_res_df <- data.frame(
   Species = row.names(res$GroupCD),
-  baseMean = unlist(res$GroupCD$baseMean),#2의 절편 계수의 거듭제곱(100만 단위로 정규화됨)
+  baseMean = unlist(res$GroupCD$baseMean),
   logFC = unlist(res$GroupCD$log2FoldChange),
   lfcSE = unlist(res$GroupCD$lfcSE), # standard errors
   stat = unlist(res$GroupCD$stat),#log2FoldChange / lfcSE
@@ -325,40 +325,3 @@ EnhancedVolcano(linda_res_df,
                 widthConnectors = 1.0,
                 colConnectors = 'black')
 
-##08. bar plot
-#01.list
-list <- c("328814","182210","1743168")
-
-#02.plot
-for(taxa in list){
-  df2_taxa <- data.frame(Abundance = abundances(x = patient, transform = "clr")[taxa,],
-                         Class = meta(patient)$Class)
-  
-  #03. color
-  mycols <- c("springgreen3","brown3","steelblue","goldenrod2")
-  names(mycols) <- levels(df2_taxa$Class)
-  
-  custom_colors <- scale_colour_manual(values = mycols)
-  
-  #04. class
-  class <- c("HC","Mild","Moderate")
-  class_pairs <- combn(seq_along(class), 2, simplify = F , FUN = function(i)class[i])
-  
-  #05. ggplot
-  p2_df2_taxa <- ggplot(df2_taxa, aes(x = Class, y = Abundance, fill = Class))+
-    scale_fill_manual(values = c("HC" ="springgreen3",
-                                 "Mild" = "brown3",
-                                 "Moderate" = "steelblue")) +
-    geom_boxplot()+ 
-    theme_bw()+ 
-    theme_classic() +
-    labs(title = taxa, y = "CLR abundances")+ 
-    
-    scale_x_discrete("Class", labels = c("HC" = "HC \n(n = 50)","Mild" = "Mild \n(n = 40)","Moderate" = "Moderate \n(n = 19)"))+
-    theme(plot.title = element_text(size=13))+
-    theme(legend.position="none",
-          axis.text.x=element_text(angle=0,hjust=0.5,vjust=0.5,size=15),axis.title.x = element_blank(),
-          axis.text.y = element_text(size=18),
-          axis.title.y = element_text(size=18))
-  
-  p3 <- p2_df2_taxa + stat_compare_means(comparisons = class_pairs, label = "p.signif", method = "t.test")}
