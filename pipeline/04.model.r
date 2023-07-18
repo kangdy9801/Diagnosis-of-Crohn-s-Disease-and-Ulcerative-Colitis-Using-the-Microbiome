@@ -68,7 +68,7 @@ val.data_x <- model.matrix(Group~.,validation)[,-1]
 val.data_y <- validation$Group
 
 #06.Perform 10-fold cross-validation to select lambda
-lasso_cv <- cv.glmnet(x = train.data_x, 
+ridge_cv <- cv.glmnet(x = train.data_x, 
                       y = train.data_y, 
                       alpha = 0, 
                       type.measure = "mse",
@@ -77,16 +77,16 @@ lasso_cv <- cv.glmnet(x = train.data_x,
                       nfolds = 10 ) 
 
 #07. best lambda
-lasso_cv$lambda.min 
-lasso_cv$lambda.1se 
+ridge_cv$lambda.min 
+ridge_cv$lambda.1se 
 
 #08. Plot cross-validation results
-plot(lasso_cv)
+plot(ridge_cv)
 
 #09. Best cross-validated lambda
-lambda_cv <- lasso_cv$lambda.min
+lambda_cv <- ridge_cv$lambda.min
 lambda_cv
-log(lasso_cv$lambda.min) 
+log(ridge_cv$lambda.min) 
 
 
 #08.Fit final model
